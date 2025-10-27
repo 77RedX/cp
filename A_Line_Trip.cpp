@@ -7,16 +7,17 @@ int main(){
         int n,x;
         cin>>n>>x;
         vector<int> a(n);
-        for(int i=0;i<n;i++)cin>>a[i];
-        int max=a[0];
-        for(int i=0;i<n-1;i++){
-            if(a[i+1]-a[i]>max){
-                max=a[i+1]-a[i];
+        int max=0;
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+            if(i=0){
+                max=a[i];
+            }
+            if(i>0){
+                max=(max>a[i]-a[i-1])?max:a[i]-a[i-1];
             }
         }
-        if((2*(x-a[n-1]))>max){
-                max=(2*(x-a[n-1]));
-            }
+        max=(max>2*(x-a[n-1]))?max:2*(x-a[n-1]);
         cout<<max<<endl;
-    }
+   }
 }
