@@ -1,19 +1,17 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
 int main(){
-    int n,t,g=51;
+    int n,t;
     cin>>n>>t;
     string s;
     cin>>s;
-    for(int i=0;i<n;i++){
-            if(s[i]=='G' && i-t<0){
-                s[0]='G';
-                s[i]='B';
+    while(t--){
+        for(int i=0;i<n-1;i++){
+            if(s[i]=='B' && s[i+1]=='G'){
+                swap(s[i],s[i+1]);
+                i++;
             }
-            else if(s[i]=='G' && i-t>=0){
-                s[i]='B';
-                s[i-t]='G';
-            }
+        }
     }
     cout<<s;
 }

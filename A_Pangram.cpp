@@ -3,19 +3,27 @@ using namespace std;
 int main(){
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    int a[26]={0};
-    for(int i=0;i<n;i++)//lowercase
-    {
-        s[i]=tolower(s[i]);
-        a[(int)s[i]-97]++;
+    if(n<26){
+        cout<<"NO";
+        return 0;
     }
-    for(int i=0;i<26;i++){
-        if(a[i]==0){
-            cout<<"NO";
-            return 0;
+    else{
+        string s;
+        cin>>s;
+        int hash[26]={0};
+        for(int i=0;i<s.size();i++){
+            s[i]=tolower(s[i]);
+            if((int)s[i]>='a' && (int)s[i]<='z'){
+                hash[s[i]-'a']++;
+            }
         }
+        for(int x=0;x<26;x++){
+            if(hash[x]==0){
+                cout<<"NO";
+                return 0;
+            }
+        }
+        cout<<"YES";
+        return 0;
     }
-    cout<<"YES";
 }

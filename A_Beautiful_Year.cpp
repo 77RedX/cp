@@ -1,27 +1,25 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
-bool unique(int y){
-    int a[4],i=1;
-    while(y!=0){
-        a[4-i]=y%10;
-        y/=10;
-        i++;
+string ntoc(int n)
+{
+    string h;
+    while(n!=0)
+    {
+        h+=(char)((n%10)+48);
+        n/=10;
     }
-    for(int i=0;i<4;i++){
-        for(int j=i+1;j<4;j++){
-            if(a[i]==a[j])
-            return false;
-        }
-    }
-    return true;
+    return h;
 }
-int main(){
-    int n;
-    cin>>n;
-    bool x=false;
-    while(x==false){
-        n++;
-        x=unique(n);
-    }
-    cout<<n;
+int main()
+{
+   int y;
+   int f;
+   cin>>y;
+   while(f!=0)
+   {
+    y++;
+    string l= ntoc(y);
+    
+   }
 }
