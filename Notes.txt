@@ -1,5 +1,5 @@
 Problems not solved:
 E_Split.cpp
-
+C_Cherry_Bomb.cpp
 Problems To Solve:
 https://codeforces.com/problemset/problem/2172/F
