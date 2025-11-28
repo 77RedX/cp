@@ -12,25 +12,22 @@ int main(){
         cin>>n>>m;
         string x,s;
         cin>>x>>s;
-        int count=0;
-        if(finder(x,s)){
-            cout<<count<<endl;
-            continue;
-        }
-        else{
-            do{
-                x+=x;
-                count++;
-            }while(x.size()<=s.size());
-        }
-        if(finder(x,s)){
-            cout<<count<<endl;   
-        }
-        else{
+        int flag=0;
+        int counter=0;
+        while(true){
+            //cout<<x<<endl;
+            if(x.size()>=m && finder(x,s)){
+                flag=1;
+                break;
+            }
+            counter++;
             x+=x;
-            count++;
-            if(finder(x,s)) cout<<count<<endl;
-            else cout<<"-1\n";
+            if(x.size()>2*m){
+                if(finder(x,s)) flag=1;
+                break;
             }
         }
+        if(flag) cout<<counter<<endl;
+        else cout<<"-1\n";
+    }
 }
