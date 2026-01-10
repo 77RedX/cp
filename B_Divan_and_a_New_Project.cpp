@@ -1,45 +1,49 @@
 #include <bits/stdc++.h>
+#define int long long
+#define MXI 1000000007LL
+#define vi vector<int>
+#define cy cout << "YES" << endl
+#define cn cout << "NO" << endl
 using namespace std;
-int main(){
+int32_t main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
     int t;
     cin>>t;
     while(t--){
         int n;
         cin>>n;
         vector<pair<int,int>> a;
-        vector<int> b(n);
-        for(int i=0;i<n;i++){
-            cin>>b[i];
-            a.push_back({b[i],i});
+        for(int i=1;i<=n;i++){
+            int freq;
+            cin>>freq;
+            a.emplace_back(i,freq);
         }
-        sort(a.begin(),a.end(),greater<pair<int,int>>());
-        int multiplier=1;
-        int mid=(n+1)/2;
-        // cout<<mid<<" "<<endl;
-        //time calc ez
-        int time =0;
-        for(int i=0;i<n;i++){
-            time+=(2*(a[i].first*multiplier));
-            if(i%2!=0) multiplier++;
-            // cout<<multiplier<<endl;
+        sort(a.begin(),a.end(),
+        [](pair<int,int> a, pair<int,int> b) {
+        return a.second > b.second;
+    });
+    vi pos(n+1,0);
+    int p=(n+1)%2==0?(n+1)/2:(n/2)+1; //middle ya middle se ek pehle
+    pos[0]=p;
+    int total=0;
+    int it=1;
+    for(auto i:a){    
+        pos[i.first]=p+it;
+        int time=2*abs(it)*i.second;
+        //cout<<time<<endl;
+        total+=time;
+        if(it<0){
+            it=abs(it);
+            it++;
         }
-        cout<<time<<endl;
-        //wtf is pos
-        int pos=1;
-        cout<<mid<<" ";
-        int i=0;
-        for(auto x:a){
-            int it1=x.second; 
-            if(i%2==0) b[it1]=mid+pos;
-            else {
-                b[it1]=mid-pos;
-                pos++;
-            }
-            i++;
-        }
-        for(int i=0;i<n;i++){
-            cout<<b[i]<<" ";
-        }
-        cout<<endl;
+        else it=-it;
     }
+    cout<<total<<endl;
+    for(auto i: pos){
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    }   
+    return 0;
 }
