@@ -12,24 +12,22 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
+        double n,k;
         cin>>n>>k;
-        vi a(n);
-        fn{
+        int pos=n/2;
+        vi a((n*k)+1);
+        int sum=0;
+        for(int i=1;i<=n*k;i++){
             cin>>a[i];
         }
-        sort(a.begin(),a.end());
-        a.resize(k-1);
-        int mex=0;
-        for(auto i:a){
-            cout<<i<<" ";
+        int r=n*k;
+        for(int i=0;i<k;i++){
+            //cout<<a[r-pos]<<" ";
+            sum+=a[r-pos];
+            r=r-pos-1;
         }
-        cout<<endl;
-        for(auto i:a){
-            if(i==mex) mex++;
-            else if(i>mex) break;
-        }
-        cout<<mex<<endl;
+        //cout<<endl;
+        cout<<sum<<endl;
     }
     return 0;
 }

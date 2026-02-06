@@ -12,24 +12,12 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
-        vi a(n);
-        fn{
-            cin>>a[i];
-        }
-        sort(a.begin(),a.end());
-        a.resize(k-1);
-        int mex=0;
-        for(auto i:a){
+        int n;
+        cin>>n;
+        for(int i=1;i<=n;i++){
             cout<<i<<" ";
         }
         cout<<endl;
-        for(auto i:a){
-            if(i==mex) mex++;
-            else if(i>mex) break;
-        }
-        cout<<mex<<endl;
     }
     return 0;
 }

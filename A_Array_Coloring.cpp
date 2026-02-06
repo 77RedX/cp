@@ -13,14 +13,34 @@ int32_t main(){
     while(t--){
         int n;
         cin>>n;
-        int even=0;
-        vi a(n);
-        for(int i=0;i<n;i++){
-            cin>>a[i];
-            if(a[i]%2==0) even++;
+        int oneth;
+        int secnd;
+        int i=0;
+        int flag=0;
+        for(i=0;i<n;i++){
+            int x;
+            cin>>x;
+            if(i==0) oneth=x;
+            else if(i==1) secnd=x;
+            else if(i>1 && i%2==0){
+                if((x+oneth)%2){
+                    flag++;
+                }
+                else{
+                    oneth=x;
+                }
+            }
+            else if(i>1 && i%2!=0){
+                if((x+secnd)%2){
+                    flag++;
+                }
+                else{
+                    secnd=x;
+                }
+            }
         }
-        if((n-even)%2==0) cy;
-        else cn;
+        if(flag) cn;// take all input, dont break earlier
+        else cy;
     }   
     return 0;
 }

@@ -12,24 +12,18 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
+        int n;
+        cin>>n;
         vi a(n);
-        fn{
-            cin>>a[i];
+        a[0]=1;
+        int gg=1;
+        for(int i=1;i<n;i++){
+            a[i]=a[i-1]+(n-i)*gg;
+            gg*=-1;
         }
-        sort(a.begin(),a.end());
-        a.resize(k-1);
-        int mex=0;
-        for(auto i:a){
-            cout<<i<<" ";
-        }
+        reverse(a.begin(),a.end());
+        fn cout<<a[i]<<" ";
         cout<<endl;
-        for(auto i:a){
-            if(i==mex) mex++;
-            else if(i>mex) break;
-        }
-        cout<<mex<<endl;
-    }
+    }   
     return 0;
 }

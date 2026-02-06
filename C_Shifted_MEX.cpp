@@ -12,24 +12,26 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
+        int n;
+        cin>>n;
         vi a(n);
         fn{
             cin>>a[i];
         }
         sort(a.begin(),a.end());
-        a.resize(k-1);
-        int mex=0;
-        for(auto i:a){
-            cout<<i<<" ";
-        }
-        cout<<endl;
-        for(auto i:a){
-            if(i==mex) mex++;
-            else if(i>mex) break;
-        }
-        cout<<mex<<endl;
+        int index=0;
+        int l=1;
+        int ml=l;
+        for(int i=0;i<n;i++){
+            if(i+1<n && a[i+1]-a[i]<2){
+                if(a[i+1]-a[i]>0) l++;
+                ml=max(ml,l);
+            }
+            else{
+                l=1;
+            }
+        }   
+        cout<<ml<<endl;
     }
     return 0;
 }

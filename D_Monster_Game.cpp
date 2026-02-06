@@ -12,24 +12,27 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
+        int n;
+        cin>>n;
         vi a(n);
-        fn{
+        vi b(n);
+        int level=0;
+        int sum=0;
+        for(int i=0;i<n;i++){
             cin>>a[i];
         }
-        sort(a.begin(),a.end());
-        a.resize(k-1);
-        int mex=0;
-        for(auto i:a){
-            cout<<i<<" ";
+        for(int i=0;i<n;i++){
+            cin>>b[i];
+            sum+=b[i];
+            if(sum<=n) level++;
         }
-        cout<<endl;
-        for(auto i:a){
-            if(i==mex) mex++;
-            else if(i>mex) break;
+        cout<<level<<endl;
+        sort(a.begin(),a.end(),greater<int>());
+        int x=1; //multiplier
+        for(int i=level;i>=0;i--){
+            
         }
-        cout<<mex<<endl;
-    }
+        
+    }   
     return 0;
 }

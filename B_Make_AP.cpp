@@ -1,30 +1,32 @@
 #include <bits/stdc++.h>
+#define int long long
+#define MXI 1000000007LL
+#define vi vector<int>
+#define cy cout << "YES" << endl
+#define cn cout << "NO" << endl
+#define fn for(int i=0;i<n;i++)
 using namespace std;
-int apcheck(vector <int>& p){
-    if((p[0]-p[1])==(p[1]-p[2])){
-        return 1;
-    }
-    else{
-        return 0;
-    }
-}
-int main(){
+int32_t main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
     int t;
     cin>>t;
     while(t--){
         vector<int> a(3);
         for(int i=0;i<3;i++) cin>>a[i];
-        if(apcheck(a)){
-            cout<<"YES\n";
+        if(((2*a[1]-a[0])%a[2]==0) && ((2*a[1]-a[0])/a[2]>0)){
+            cy;
+            //cout<<1<<endl;
         }
-        else if(count(a.begin(),a.end(),1)==2 && count(a.begin(),a.end(),2)==1){
-            cout<<"NO\n";
+        else if(((2*a[1]-a[2])%a[0]==0) && ((2*a[1]-a[2])/a[0]>0)){
+            cy;
+            //cout<<2<<endl;
         }
-        else if(count(a.begin(),a.end(),1)<=2 && count(a.begin(),a.end(),1)>0){
-            cout<<"YES\n";
+        else if((((a[0]+a[2])/2)%a[1]==0) && abs(a[0]-a[2])%2==0 && (((a[0]+a[2])/2)/a[1]>0)){
+            cy;
+            //cout<<3<<endl;
         }
-        else{
-            
-        }
-    }
+        else cn;
+    }   
+    return 0;
 }

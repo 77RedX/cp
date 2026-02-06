@@ -14,22 +14,14 @@ int32_t main(){
     while(t--){
         int n,k;
         cin>>n>>k;
-        vi a(n);
-        fn{
-            cin>>a[i];
-        }
-        sort(a.begin(),a.end());
-        a.resize(k-1);
-        int mex=0;
-        for(auto i:a){
-            cout<<i<<" ";
-        }
-        cout<<endl;
-        for(auto i:a){
-            if(i==mex) mex++;
-            else if(i>mex) break;
-        }
-        cout<<mex<<endl;
+        int ed=n*(n-1)/2;
+        int min=n-1;
+        int rem=n;
+        while(k>0 && k-rem-1>0){
+            k-=rem-1;
+            rem-=1;
+        }   
+        cout<<max(rem,1);
     }
     return 0;
 }
