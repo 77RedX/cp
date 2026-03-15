@@ -16,23 +16,28 @@ int32_t main(){
         cin>>n;
         vi a(n);
         vi b(n);
-        int level=0;
-        int sum=0;
         for(int i=0;i<n;i++){
             cin>>a[i];
         }
+        vi pref(n);
         for(int i=0;i<n;i++){
             cin>>b[i];
-            sum+=b[i];
-            if(sum<=n) level++;
+            if(i==0) pref[i]=b[i];
+            else pref[i]=pref[i-1]+b[i];
         }
-        cout<<level<<endl;
-        sort(a.begin(),a.end(),greater<int>());
-        int x=1; //multiplier
-        for(int i=level;i>=0;i--){
-            
+        sort(a.begin(),a.end(),greater<int> ()); //descending
+        int max=0;
+        fn{
+            if(pref[i]<=n){
+                //cout<<"if\n";
+                int x=a[pref[i]-1];
+                int score=(i+1)*x;
+                if(max<score){
+                    max=score;
+                }
+            }
         }
-        
+        cout<<max<<endl;
     }   
     return 0;
 }

@@ -4,21 +4,19 @@
 #define vi vector<int>
 #define cy cout << "YES" << endl
 #define cn cout << "NO" << endl
+#define fn for(int i=0;i<n;i++)
 using namespace std;
 int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
+    //n(root(n)) solution?
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
-        vector<int> a(n);
-        map<int,int> c;
-        for(int i=0;i<n;i++){
-            cin>>a[i];
-            c[a[i]]++;
-        }   
+        int n;
+        cin>>n;
+        vi a(n);
+        fn cin>>a[i];
         
     }
     return 0;

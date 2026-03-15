@@ -4,22 +4,18 @@
 #define vi vector<int>
 #define cy cout << "YES" << endl
 #define cn cout << "NO" << endl
+#define fn for(int i=0;i<n;i++)
 using namespace std;
 int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin>>t;
-    while(t--){
-        int n,k;
-        cin>>n>>k;
-        vector<int> a(n);
-        map<int,int> c;
-        for(int i=0;i<n;i++){
-            cin>>a[i];
-            c[a[i]]++;
-        }   
-        
-    }
+       int t;
+       cin>>t;
+       while(t--){
+        int n,w;
+        cin>>n>>w;
+        int ans=n-(n/w);
+        cout<<ans<<endl;
+       }
     return 0;
 }
