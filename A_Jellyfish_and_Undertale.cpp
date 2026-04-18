@@ -12,20 +12,20 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
-        vector<int> pres(k,0);
+        int a,b,n;
+        cin>>a>>b>>n;
+        vi v(n);
+        fn cin>>v[i];
+        int ans=b;
         fn{
-            int x;
-            cin>>x;
-            if(x<k) pres[x]++;
-
+            if(v[i]>=a){
+                ans+=a-1;
+            }
+            else{
+                ans+=v[i];
+            }
         }
-        int mex=0;
-        while(mex<k-1 && pres[mex]){
-            mex++;
-        }
-        cout<<mex<<endl;
+        cout<<ans<<endl;
     }
     return 0;
 }

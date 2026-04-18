@@ -12,20 +12,17 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
-        vector<int> pres(k,0);
+        int n;
+        n=7;
+        vi a(n);
+        fn cin>>a[i];
+        sort(a.begin(),a.end());
+        int sum=0;
         fn{
-            int x;
-            cin>>x;
-            if(x<k) pres[x]++;
-
+            if(i!=n-1) sum-=a[i];
         }
-        int mex=0;
-        while(mex<k-1 && pres[mex]){
-            mex++;
-        }
-        cout<<mex<<endl;
-    }
+        sum+=a[n-1];
+        cout<<sum<<endl;
+    }   
     return 0;
 }

@@ -12,20 +12,22 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
-        vector<int> pres(k,0);
+        int n;
+        cin>>n;
+        vi a(n);
+        int mini=1e4;
+        int maxi=0;
         fn{
-            int x;
-            cin>>x;
-            if(x<k) pres[x]++;
-
+            cin>>a[i];
+            mini=min(mini,a[i]);
+            maxi=max(maxi,a[i]);
         }
-        int mex=0;
-        while(mex<k-1 && pres[mex]){
-            mex++;
+        int ans=a[n-1]-a[0];
+        ans=max({maxi-a[0],a[n-1]-mini});
+        for(int i=1;i<n;i++){
+            ans=max(ans,a[i-1]-a[i]);
         }
-        cout<<mex<<endl;
-    }
+        cout<<ans<<endl;
+    }   
     return 0;
 }

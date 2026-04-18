@@ -12,20 +12,9 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
-        vector<int> pres(k,0);
-        fn{
-            int x;
-            cin>>x;
-            if(x<k) pres[x]++;
-
-        }
-        int mex=0;
-        while(mex<k-1 && pres[mex]){
-            mex++;
-        }
-        cout<<mex<<endl;
+        int n;
+        cin>>n;
+        cout<<min(n+1,67LL)<<endl;
     }
     return 0;
 }

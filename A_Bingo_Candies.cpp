@@ -12,20 +12,21 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
-        vector<int> pres(k,0);
+        int n;
+        cin>>n;
+        unordered_map<int,int> m;
+        vector<vector<int>> a(n,vector<int>(n));
+        int flag=0;
         fn{
-            int x;
-            cin>>x;
-            if(x<k) pres[x]++;
+            for(int j=0;j<n;j++){
+                cin>>a[i][j];
+                m[a[i][j]]++;
+                if(m[a[i][j]]>n*(n-1)) flag=1;
+            }
+        }
+        if(flag) cn;
+        else cy;
 
-        }
-        int mex=0;
-        while(mex<k-1 && pres[mex]){
-            mex++;
-        }
-        cout<<mex<<endl;
-    }
+    }   
     return 0;
 }

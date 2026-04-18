@@ -12,20 +12,17 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
-        vector<int> pres(k,0);
+        int n;
+        string s;
+        cin>>n>>s;
+        int ans=1;
+        int maxi=ans;
         fn{
-            int x;
-            cin>>x;
-            if(x<k) pres[x]++;
-
+            if(i==0) continue;
+            if(s[i]==s[i-1])maxi++,ans=max(maxi,ans);
+            else maxi=1; 
         }
-        int mex=0;
-        while(mex<k-1 && pres[mex]){
-            mex++;
-        }
-        cout<<mex<<endl;
-    }
+        cout<<ans+1<<endl;
+    }   
     return 0;
 }

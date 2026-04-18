@@ -12,20 +12,15 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
-        vector<int> pres(k,0);
+        int n;
+        cin>>n;
+        vi a(n);
+        int mini=INT_MAX;
         fn{
-            int x;
-            cin>>x;
-            if(x<k) pres[x]++;
-
+            cin>>a[i];
+            mini=mini&a[i];
         }
-        int mex=0;
-        while(mex<k-1 && pres[mex]){
-            mex++;
-        }
-        cout<<mex<<endl;
-    }
+        cout<<mini<<endl;
+    }   
     return 0;
 }

@@ -12,20 +12,21 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
-        vector<int> pres(k,0);
-        fn{
-            int x;
-            cin>>x;
-            if(x<k) pres[x]++;
-
+        int n;
+        cin>>n;
+        vi a(n);
+        int cnt=0;
+        fn {
+            cin>>a[i];
         }
-        int mex=0;
-        while(mex<k-1 && pres[mex]){
-            mex++;
+        //same parity pairs check
+        for(int i=1;i<n;i++){
+            if((a[i]&1)==(a[i-1]&1)){//same parity
+                //cout<<a[i]<<" ";
+                cnt++;
+            }
         }
-        cout<<mex<<endl;
+        cout<<cnt<<endl;
     }
     return 0;
 }

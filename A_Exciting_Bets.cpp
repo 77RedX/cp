@@ -12,19 +12,17 @@ int32_t main(){
     int t;
     cin>>t;
     while(t--){
-        int n,k,x;
-        cin>>n>>k>>x;
-        //cant dupe
-        //if the top k elements can sum it up, then there's a chance
-        //if the bottom k elements are bigger than the target then no
-        int all=n*(n+1)/2; 
-        int bot=(n-k)*(n-k+1)/2; //bottom n-k elements
-        if(all-bot>=x){
-            if(k*(k+1)/2>x) cn;
-            else cy;
+        int a,b;
+        cin>>a>>b;
+        int ans=max(a,b)-min(a,b);
+        if(ans==0){
+            cout<<"0 0\n";
         }
         else{
-            cn;
+            cout<<ans<<" ";
+            int steps=0;
+            steps=min(ans-(a%ans), a%ans);
+            cout<<steps<<endl;
         }
     }   
     return 0;
