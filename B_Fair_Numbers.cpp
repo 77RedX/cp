@@ -6,6 +6,23 @@
 #define cn cout << "NO" << endl
 #define fn for(int i=0;i<n;i++)
 using namespace std;
+int solve(int n){
+    int x=n;
+    vector<int> a(10, -1);
+    while(x){
+        a[x%10]=1;
+        x/=10;
+    }
+    for(int i=1; i<10; i++){
+        if(a[i]==1){
+            if(n%i){
+                n=solve(n+1); //taking crazy mem icl
+                break;
+            }
+        }
+    }
+    return n;
+}
 int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
@@ -14,21 +31,8 @@ int32_t main(){
     while(t--){
         int n;
         cin>>n;
-        string s;
-        cin>>s;
-        stack<char> st;
-        int i=0;
-        //cout<<"bug";
-        while(i<n){
-            if(!st.empty() && (st.top()=='(' && s[i]==')')){
-                st.pop();
-            }
-            else{
-                st.push(s[i]);
-            }
-            i++;
-        }
-        cout<<(st.size()/2)<<endl;
+        n=solve(n);
+        cout<<n<<endl;
     }
     return 0;
 }
