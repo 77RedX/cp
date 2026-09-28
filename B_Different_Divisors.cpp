@@ -6,34 +6,43 @@
 #define cn cout << "NO" << endl
 #define fn for(int i=0;i<n;i++)
 using namespace std;
+vector<int> isprime(){
+    vector<int> prime(1e5+1, 1);
+    prime[0]=prime[1]=0;
+    for(int i=2; i*i<=1e5; i++){
+        if(prime[i]==0) continue;
+        int j=i*i;
+        while(j<=1e5){
+            prime[j]=0;
+            j+=i;
+        }   
+    }
+    return prime;
+}
 int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     int t;
     cin>>t;
+    vector<int> prime=isprime();
     while(t--){
         int d;
         cin>>d;
-        int start=3*d+1;
-        while(true){
-            int count=1;
-            int i=2;
-            int last=1;
-            while(i<=start){
-                if(start%i==0){
-                    if(i-last<d) break; //not possible
-                    last=i;
-                    count++;
-                    if(count>=4){
-                        break;
-                    }
+        int x=0,y=0;
+        for(int i=2; i<1e5; i++){
+            if(x==0){
+                if(prime[i]==1 && i-1>=d){
+                    x=i;
                 }
-                i++;
             }
-            if(count>=4) break;
-            start++;
+            else{
+                if(prime[i]==1 && i-x>=d){
+                    y=i;
+                    break;
+                }
+            }
         }
-        cout<<start<<endl;
+        cout<<x*y<<endl;
     }
     return 0;
 }
