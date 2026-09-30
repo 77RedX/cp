@@ -14,7 +14,19 @@ int32_t main(){
     while(t--){
         int n;
         cin>>n;
-        
+        vector<int> a(n);
+        int flag=0;
+        unordered_map<int,int> mpp;
+        for(int i=0; i<n; i++){
+            cin>>a[i];
+            mpp[a[i]]++;
+            if(mpp[a[i]]==2) flag=1;
+        }
+        if(!flag){
+            cn;
+            continue;
+        }
+        cy;
     }   
     return 0;
 }
