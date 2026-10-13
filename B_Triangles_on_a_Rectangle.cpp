@@ -30,7 +30,7 @@ int32_t main(){
         }
         int ans=0;
         for(int i=0; i<4; i++){
-            int base=a[i].back()-a[i][0];    
+            int base=a[i].back()-a[i][0];
             int height=i<2?h:w;
             ans=max(ans, base*height);
         }
