@@ -16,7 +16,21 @@ int32_t main(){
         cin>>a[i];
     }
     sort(a.rbegin(), a.rend());
-    int i=0, j=n-1;
-    
+    int i=0;
+    int ans=0;
+    int total=n;
+    //cout<<total<<endl;
+    while(total){
+        if(total>=((d/a[i])+1))
+        {
+            total-=((d/a[i])+1);
+            i++;
+            ans++;
+        }
+        else{
+            break;
+        }
+    }
+    cout<<ans<<endl;
     return 0;
 }
